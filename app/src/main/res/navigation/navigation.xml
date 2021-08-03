@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.splash.ui.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_viewPagerFragment"
+            app:destination="@id/viewPagerFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment2"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.splash.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_imageFragment"
+            app:destination="@id/imageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewPagerFragment"
+        android:name="com.example.splash.ui.onboarding.ViewPagerFragment"
+        android:label="fragment_view_pager"
+        tools:layout="@layout/fragment_view_pager" >
+        <action
+            android:id="@+id/action_viewPagerFragment_to_homeFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/splashActivity"
+        android:name="com.example.splash.ui.HomeActivity"
+        android:label="activity_splash"
+        tools:layout="@layout/activity_home" />
+    <fragment
+        android:id="@+id/cityFragment"
+        android:name="com.example.splash.ui.util.CityFragment"
+        android:label="fragment_city"
+        tools:layout="@layout/fragment_city" >
+        <action
+            android:id="@+id/action_cityFragment_to_splashActivity"
+            app:destination="@id/splashActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/imageFragment"
+        android:name="com.example.splash.ui.util.ImageFragment"
+        android:label="fragment_image"
+        tools:layout="@layout/fragment_image" >
+        <action
+            android:id="@+id/action_imageFragment_to_bloodFragment"
+            app:destination="@id/bloodFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.splash.ui.register.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_imageFragment"
+            app:destination="@id/imageFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bloodFragment"
+        android:name="com.example.splash.ui.util.BloodFragment"
+        android:label="fragment_blood"
+        tools:layout="@layout/fragment_blood" >
+        <action
+            android:id="@+id/action_bloodFragment_to_cityFragment"
+            app:destination="@id/cityFragment" />
+    </fragment>
+</navigation>

@@ -1,0 +1,33 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Splash" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:typeface">monospace</item>
+        <item name="android:windowContentTransitions">true</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+
+    <style name="outlineButtonDefault" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="strokeColor">@color/Red</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cornerRadius">10dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+    </style>
+    <style name="myButton">
+        <item name="android:background">@drawable/test</item>
+        <item name="android:textAppearance">@style/TextAppearance.MdcTypographyStyles.Button</item>
+    </style>
+    <style name="TextAppearance.MdcTypographyStyles.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="fontFamily">@font/work_sans</item>
+        <item name="android:fontFamily">@font/work_sans</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+
+</resources>

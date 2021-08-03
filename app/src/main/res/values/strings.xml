@@ -1,0 +1,126 @@
+<resources>
+    <string name="app_name">Splash</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="rokto_lagbe">Rokto Lagbe ?</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Enter</string>
+    <string name="registrar">Registrar</string>
+    <string name="upload">upload</string>
+    <string name="name">Name</string>
+
+    <string-array name="blood_groups">
+        <item>All</item>
+        <item>O-</item>
+        <item>O+</item>
+        <item>A-</item>
+        <item>A+</item>
+        <item>B-</item>
+        <item>B+</item>
+        <item>AB-</item>
+        <item>AB+</item>
+    </string-array>
+
+    <string-array name="city_name">
+
+        <item>Badarganj</item>
+        <item>Bajitpur</item>
+        <item>Bandarbanv</item>
+        <item>Baniachang</item>
+        <item>Barisal</item>
+        <item>Bera</item>
+        <item>Bhairab_Bazar</item>
+        <item>Bhandaria</item>
+
+        <item>Bheramara</item>
+        <item>Bhola</item>
+        <item>Bogra</item>
+        <item>Burhanuddin</item>
+
+        <item>Chhagalnaiya</item>
+        <item>Chhatak</item>
+        <item>Chilmari</item>
+        <item>Chittagong</item>
+        <item>Cumilla</item>
+
+        <item>Dhaka</item>
+        <item>Dinajpur</item>
+        <item>Dohar</item>
+        <item>Faridpur</item>
+        <item>Fatikchari</item>
+        <item>Feni</item>
+        <item>Gafargaon</item>
+        <item>Gaurnadi</item>
+        <item>Habiganj</item>
+        <item>Hajiganj</item>
+        <item>Ishurdi</item>
+        <item>Jamalpur</item>
+        <item>Jessore</item>
+        <item>Jhingergacha</item>
+        <item>Joypur Hat</item>
+        <item>Kalia</item>
+        <item> Kaliganj</item>
+        <item>Kesabpur</item>
+        <item>Khagrachhari</item>
+        <item>Khulna</item>
+        <item>Kishorganj</item>
+        <item>Kushtia</item>
+        <item>Laksham</item>
+        <item>Lakshmipur</item>
+        <item>Lalmanirhat</item>
+        <item>Lalmohan</item>
+        <item> Madaripur</item>
+        <item>Manikchari</item>
+        <item>Mathba</item>
+        <item>Maulavi Bazar</item>
+        <item>Mehendiganj</item>
+        <item>Mirzapur</item>
+        <item>Morrelgonj</item>
+        <item>Muktagacha</item>
+        <item>Mymensingh</item>
+        <item>Nabinagar</item>
+        <item>Nagarpur</item>
+        <item>Nageswari</item>
+        <item>Nalchiti</item>
+        <item>Narail</item>
+        <item>Narayanganj</item>
+        <item>Narsingdi</item>
+        <item>Nawabganj</item>
+        <item>Netrakona</item>
+        <item>Pabna</item>
+        <item>Pabna</item>
+        <item>Palang</item>
+        <item>Panchagarh</item>
+        <item>Par Naogaon</item>
+        <item>Parbatipur</item>
+        <item>Patiya</item>
+        <item>Phultala</item>
+        <item>Pirgaaj</item>
+        <item>Pirojpur</item>
+        <item>Raipur</item>
+        <item>Rajshahi</item>
+        <item>Ramganj</item>
+        <item>Rangpur</item>
+        <item>Raojan</item>
+        <item>Saidpur</item>
+        <item>Sakhipur</item>
+        <item>Sandwip</item>
+        <item>Sarankhola</item>
+        <item>Sarishabari</item>
+        <item>Satkania</item>
+        <item>Satkhira</item>
+        <item>Shahzadpur</item>
+        <item>Sherpur</item>
+        <item>Shibganj</item>
+        <item>Sirajganj</item>
+        <item>Sylhet</item>
+        <item>Tangail</item>
+        <item>Teknaf</item>
+        <item>Thakurgaon</item>
+        <item>Tungi</item>
+        <item>Tungipara</item>
+        <item>Uttar Char Fasson</item>
+
+    </string-array>
+</resources>
