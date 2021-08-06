@@ -1,5 +1,6 @@
 package com.example.splash.ui.login
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,8 +14,10 @@ import com.example.splash.extensions.isValidEmail
 import com.example.splash.R
 import com.example.splash.commons.ProgressDialog
 import com.example.splash.databinding.FragmentLoginBinding
+import com.example.splash.utilites.Resource
 import com.example.splash.viewmodel.FirebaseAuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
@@ -57,13 +60,36 @@ class LoginFragment : Fragment() {
                 }
             }
 
-            authViewModel.loginUserLiveData?.observe(viewLifecycleOwner, Observer {
-                if (it != null) {
-                    Toast.makeText(requireContext(), "User ${it.email}  Logged in succesfuuly", Toast.LENGTH_LONG)
-                        .show()
-                    navigateToMainActivity()
+            authViewModel.loginState.observe(viewLifecycleOwner, Observer { state ->
+                when (state) {
+                    is Resource.Success -> {
+                        Toast.makeText(
+                            requireContext(),
+                            "User  Logged in succesfuuly",
+                            Toast.LENGTH_LONG
+                        ).show()
+                        navigateToMainActivity()
+                    }
+                    is Resource.Error -> {
+                        Toast.makeText(
+                            requireContext(),
+                            "User  Errr",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                    is Resource.Loading -> {
+                        Toast.makeText(
+                            requireContext(),
+                            "User  Loading",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+
+
                 }
-                authViewModel.progress.value = false
+
+
+
             })
 
     }

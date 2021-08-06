@@ -10,7 +10,9 @@ data class UserData(
     val age:Int = 0,
     val place:String = "",
     val city:String = "",
-    val bloodGroup:String = "",
+    var bloodGroup:String = "",
+    val address: Address? = null,
     var date:String = "",
-    var image:String = ""
+    var image:String = "",
+    var deviceToken: String = ""
 )

@@ -11,6 +11,7 @@
     <color name="Red">#ff585b</color>
     <color name="grey_dark">#414141</color>
     <color name="divider">#E6E6E6</color>
+    <color name="ice">#fafafa</color>
 
     <color name="colorPrimaryDark">#c62828</color>
     <color name="colorAccent">#E53935</color>

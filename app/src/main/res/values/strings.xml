@@ -9,6 +9,8 @@
     <string name="registrar">Registrar</string>
     <string name="upload">upload</string>
     <string name="name">Name</string>
+    <string name="needs_your_permission">The app needs your permission to work</string>
+
 
     <string-array name="blood_groups">
         <item>All</item>

@@ -20,5 +20,9 @@
         android:id="@+id/navigation_profile"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="profile" />
+    <item
+        android:id="@+id/blankFragment"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="blank" />
 
 </menu>

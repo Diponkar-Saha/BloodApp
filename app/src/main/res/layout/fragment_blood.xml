@@ -1,191 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.util.BloodFragment">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="16dp"
         android:gravity="left"
-        android:text="What is\nYour Gender"
+        android:text="What is\nYour Blood Group"
         android:textColor="#000000"
         android:textSize="30dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.01999998" />
-
-    <Button
-        android:id="@+id/aplus"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/red_round"
-        android:text="A+"
-        app:layout_constraintBottom_toTopOf="@+id/bminus"
-        app:layout_constraintEnd_toStartOf="@+id/aMinus"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
-
-    </Button>
-
-    <Button
-
-        android:id="@+id/aMinus"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:background="@drawable/red_round"
-        android:text="A-"
-        app:layout_constraintBottom_toBottomOf="@+id/aplus"
-        app:layout_constraintEnd_toStartOf="@+id/bplus"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/aplus"
-        app:layout_constraintTop_toTopOf="@+id/aplus">
-
-    </Button>
-
-    <Button
-        android:id="@+id/bplus"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/red_round"
-        android:text="B+"
-        app:layout_constraintBottom_toBottomOf="@+id/aMinus"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/aMinus"
-        app:layout_constraintTop_toTopOf="@+id/aMinus">
-
-    </Button>
-
-    <Button
-
-        android:id="@+id/oplus"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:background="@drawable/red_round"
-        android:text="O+"
-        app:layout_constraintBottom_toBottomOf="@+id/bminus"
-        app:layout_constraintEnd_toStartOf="@+id/ominus"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/bminus"
-        app:layout_constraintTop_toTopOf="@+id/bminus">
-
-    </Button>
-
-    <Button
-        android:id="@+id/bminus"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/red_round"
-        android:text="B-"
-        app:layout_constraintBottom_toTopOf="@+id/abplus"
-        app:layout_constraintEnd_toStartOf="@+id/oplus"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/aplus">
-
-    </Button>
-
-    <Button
-        android:id="@+id/ominus"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/red_round"
-        android:text="O-"
-        app:layout_constraintBottom_toBottomOf="@+id/oplus"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/oplus"
-        app:layout_constraintTop_toTopOf="@+id/oplus">
-
-    </Button>
-
-    <Button
-        android:id="@+id/abplus"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/red_round"
-        android:text="AB+"
-        app:layout_constraintEnd_toStartOf="@+id/abminus"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bminus">
-
-    </Button>
-
-    <Button
-
-        android:id="@+id/abminus"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginEnd="60dp"
-        android:background="@drawable/red_round"
-        android:text="AB-"
-        app:layout_constraintBottom_toBottomOf="@+id/abplus"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/abplus"
-        app:layout_constraintTop_toTopOf="@+id/abplus"
-        app:layout_constraintVertical_bias="0.0">
-
-    </Button>
-
-    <TextView
-        android:id="@+id/textView2"
+        />
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:orientation="vertical"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:gravity="center"
-        android:text="Defining your gender will let us\n
-know bring new features for\n
-mothers health care"
-        android:textColor="#000000"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/abplus">
-
-    </TextView>
-
-    <Button
-        android:id="@+id/b_group_btn"
-        android:layout_width="270dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/red_button"
-        android:shadowColor="#A8A8A8"
-        android:text="Next"
-
-        android:textColor="#FFFFFF"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        android:gravity="center">
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:weightSum="3"
+                >
+
+                <Button
+                    android:id="@+id/aplus"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/red_round"
+                    android:button="@android:color/transparent"
+                    android:text="A+"
+                    android:textAlignment="center"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    />
+
+                <Button
+                    android:id="@+id/aminus"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/red_round"
+                    android:button="@android:color/transparent"
+                    android:text="A-"
+                    android:textAlignment="center"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    />
+
+
+                <Button
+                    android:id="@+id/bplus"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/red_round"
+                    android:button="@android:color/transparent"
+                    android:text="B+"
+                    android:textAlignment="center"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:id="@+id/bminus"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/red_round"
+                    android:button="@android:color/transparent"
+                    android:text="B-"
+                    android:textAlignment="center"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    />
+
+
+
+                <Button
+                    android:id="@+id/oplus"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/red_round"
+                    android:button="@android:color/transparent"
+                    android:text="O+"
+                    android:textAlignment="center"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    />
+
+                <Button
+                    android:id="@+id/ominus"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/red_round"
+                    android:button="@android:color/transparent"
+                    android:text="O-"
+                    android:textAlignment="center"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:id="@+id/abplus"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/red_round"
+                    android:button="@android:color/transparent"
+                    android:text="AB+"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:textAlignment="center" />
+                <Button
+                    android:id="@+id/abminus"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@drawable/red_round"
+                    android:button="@android:color/transparent"
+                    android:text="AB-"
+                    android:layout_marginLeft="10dp"
+                    android:textAlignment="center" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:gravity="center"
+            android:text="Your Blood need to accurate\n
+if you don't know about it.Pleaase contact nearest"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            >
+
+        </TextView>
+
+        <Button
+            android:id="@+id/b_group_btn"
+            android:layout_width="270dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/red_button"
+            android:shadowColor="#A8A8A8"
+            android:text="Next"
+
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            />
+    </LinearLayout>
+
+
+
+</LinearLayout>

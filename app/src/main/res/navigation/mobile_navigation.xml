@@ -27,4 +27,33 @@
         android:name="com.example.splash.ui.view.MapsFragment"
         android:label="map"
         tools:layout="@layout/fragment_maps" />
+    <fragment
+        android:id="@+id/blankFragment"
+        android:name="com.example.splash.BlankFragment"
+        android:label="fragment_blank"
+        tools:layout="@layout/fragment_blank" >
+        <action
+            android:id="@+id/action_blankFragment_to_pickMapsFragment"
+            app:destination="@id/pickMapsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pickMapsFragment"
+        android:name="com.example.splash.PickMapsFragment"
+        android:label="fragment_pick_maps"
+        tools:layout="@layout/fragment_pick_maps" >
+        <action
+            android:id="@+id/action_pickMapsFragment_to_blankFragment"
+            app:destination="@id/blankFragment" />
+        <action
+            android:id="@+id/action_pickMapsFragment_self"
+            app:destination="@id/pickMapsFragment" />
+        <action
+            android:id="@+id/action_pickMapsFragment_to_oppoFragment"
+            app:destination="@id/oppoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/oppoFragment"
+        android:name="com.example.splash.OppoFragment"
+        android:label="fragment_oppo"
+        tools:layout="@layout/fragment_oppo" />
 </navigation>

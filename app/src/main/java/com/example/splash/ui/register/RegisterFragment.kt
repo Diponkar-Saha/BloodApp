@@ -13,8 +13,10 @@ import com.example.splash.extensions.isValidEmail
 import com.example.splash.R
 import com.example.splash.commons.ProgressDialog
 import com.example.splash.databinding.FragmentRegisterBinding
+import com.example.splash.utilites.Resource
 import com.example.splash.viewmodel.FirebaseAuthViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class RegisterFragment : Fragment() {
@@ -51,13 +53,23 @@ class RegisterFragment : Fragment() {
             }
         }
 
-        authViewModel.userLiveData?.observe(viewLifecycleOwner, Observer {
-            if (it != null) {
-                Toast.makeText(requireContext(), "User ${it.email}  Logged in succesfuuly", Toast.LENGTH_SHORT)
-                    .show()
-                navigateToMainActivity()
+        authViewModel.registerState.observe(viewLifecycleOwner, Observer { state->
+            when (state) {
+                is Resource.Success -> {
+
+                    navigateToMainActivity()
+                    Toast.makeText(requireContext(), "success", Toast.LENGTH_SHORT)
+                        .show()
+                }
+                is Resource.Error -> {
+                    Toast.makeText(requireContext(), "errror", Toast.LENGTH_SHORT)
+                        .show()
+                }
+                is Resource.Loading -> {
+                    Toast.makeText(requireContext(), "loading", Toast.LENGTH_SHORT)
+                        .show()
+                }
             }
-            authViewModel.progress.value = false
         })
 
     }
@@ -92,13 +104,13 @@ class RegisterFragment : Fragment() {
 
     private fun showProgressBar() {
         val dialog =  ProgressDialog.dialog(requireContext(), "signing in...")
-        authViewModel.progress.observe(viewLifecycleOwner, Observer { showing ->
-            if (showing) {
-                dialog.show()
-            } else {
-                dialog.dismiss()
-            }
-        })
+//        authViewModel.progress.observe(viewLifecycleOwner, Observer { showing ->
+//            if (showing) {
+//                dialog.show()
+//            } else {
+//                dialog.dismiss()
+//            }
+//        })
     }
 
 

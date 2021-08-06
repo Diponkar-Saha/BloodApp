@@ -18,18 +18,19 @@ import kotlinx.coroutines.launch
 @HiltViewModel
 class ProfileImageViewModel@Inject constructor(private val repository: FirebaseAuthRepository) : ViewModel() {
 
-    val progress = MutableLiveData<Boolean>()
-    var userLiveData: MutableLiveData<FirebaseUser>? = repository.userLiveData
-
+    var uri = Uri.parse("android.resource://com.example.splash/drawable/profile")
     private val _uploadStatus = MutableLiveData<Resource<Unit>>()
     val uploadStatus: LiveData<Resource<Unit>> = _uploadStatus
 
-    fun uploadImageData(date: String, imageUri: Uri) {
-        progress.value  = true
-        repository.uploadImageData(date,imageUri)
+    //private val userData = repository.getUserDetails()
+
+    fun upload(date: String) = viewModelScope.launch {
+        repository.updateUser(uri ,date).collect {
+            _uploadStatus.postValue(it)
+        }
     }
-    fun upload(imageUri: Uri,date: String) = viewModelScope.launch {
-        repository.updateUser(imageUri ,date).collect {
+    fun bloodGroupUpload(blood: String) = viewModelScope.launch {
+        repository.bloodGroupUpload(blood).collect {
             _uploadStatus.postValue(it)
         }
     }

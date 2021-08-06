@@ -32,7 +32,8 @@ class HomeActivity : AppCompatActivity() {
                 R.id.navigation_home,
                 R.id.navigation_user,
                 R.id.navigation_profile,
-                R.id.navigation_map
+                R.id.navigation_map,
+                R.id.blankFragment
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

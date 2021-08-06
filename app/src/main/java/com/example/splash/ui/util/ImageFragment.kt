@@ -5,7 +5,6 @@ import android.content.ContentValues.TAG
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.text.TextUtils
 import android.text.format.DateFormat
 import android.util.Log
 import android.view.LayoutInflater
@@ -26,7 +25,7 @@ import com.example.splash.commons.ProgressDialog
 import com.example.splash.databinding.FragmentImageBinding
 import com.example.splash.utilites.Constants
 import com.example.splash.utilites.Resource
-import com.example.splash.utilites.Status
+
 import com.example.splash.viewmodel.ProfileImageViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -34,7 +33,6 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.android.synthetic.main.fragment_image.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -43,6 +41,7 @@ import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import timber.log.Timber
 import java.util.*
+
 private const val TAG = "TESTE"
 
 @AndroidEntryPoint
@@ -50,14 +49,7 @@ class ImageFragment : Fragment() , DatePickerDialog.OnDateSetListener {
     private val viewModel: ProfileImageViewModel by viewModels()
     private var _binding: FragmentImageBinding? = null
     private val binding get() = _binding!!
-    private var imageUri: Uri? = null
-    private val authentication = FirebaseAuth.getInstance()
 
-    val db = Firebase.firestore
-    private val fileName = UUID.randomUUID().toString()
-
-
-    val imageRef = Firebase.storage.reference
 
 
     var day = 0
@@ -92,58 +84,45 @@ class ImageFragment : Fragment() , DatePickerDialog.OnDateSetListener {
     }
 
     private fun initView() {
-        showProgressBar()
+
 
         binding.btnImg.setOnClickListener {
             val date = binding.textView.text.toString().trim()
 
             // viewModel.uploadImageData(date,imageUri!!)
-             viewModel.upload(imageUri!!,date)
-            navigateToMainActivity()
+             viewModel.upload(date)
+
 
 
         }
 
 
         //
-        viewModel.userLiveData?.observe(viewLifecycleOwner, Observer {
-            if (it != null) {
-                Toast.makeText(requireContext(), "image upload succesfuuly", Toast.LENGTH_SHORT)
-                    .show()
-                navigateToMainActivity()
-
-            }else{
-                Toast.makeText(requireContext(), "eeeeeeeeeee", Toast.LENGTH_SHORT)
-                    .show()
-
-            }
-            viewModel.progress.value = false
-        })
-    }
-        private fun fire() = CoroutineScope(Dispatchers.Main).launch {
-            try {
-                val date = binding.textView.text.toString().trim()
-                val userr = Firebase.auth.currentUser
-                val imageUrl = imageRef.child("images/$fileName").putFile(imageUri!!)
-                    .await().storage.downloadUrl.await().toString()
-                db.collection(Constants.USERS)
-                    .document(userr.toString())
-                    .update("date", date, "image", imageUrl)
-                withContext(Dispatchers.Main) {
-                    Toast.makeText(
-                        requireContext(),
-                        "Successfully updated user",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            } catch (e: Exception) {
-                withContext(Dispatchers.Main) {
-                    Toast.makeText(requireContext(), "updated failed $e", Toast.LENGTH_SHORT)
+        viewModel.uploadStatus?.observe(viewLifecycleOwner, Observer { status ->
+            when (status) {
+                is Resource.Loading -> {
+                    binding.loadingAnim.isVisible =
+                        true
+                    Toast.makeText(requireContext(), "loading", Toast.LENGTH_SHORT)
                         .show()
                 }
-            }
+                is Resource.Success -> {
+                    binding.loadingAnim.isVisible = false
+                    findNavController().navigate(R.id.action_imageFragment_to_bloodFragment)
+                    Toast.makeText(requireContext(), "success", Toast.LENGTH_SHORT)
+                        .show()
 
-        }
+                }
+                is Resource.Error -> {
+                    binding.loadingAnim.isVisible = false
+                    Toast.makeText(requireContext(), "updated failed ${status.message}", Toast.LENGTH_SHORT)
+                        .show()
+
+                }
+            }
+        })
+    }
+
 
         private fun navigateToMainActivity() {
             findNavController().navigate(R.id.action_imageFragment_to_bloodFragment)
@@ -175,21 +154,13 @@ class ImageFragment : Fragment() , DatePickerDialog.OnDateSetListener {
         override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
             super.onActivityResult(requestCode, resultCode, data)
             if (requestCode == Constants.PICK_IMAGE && resultCode == AppCompatActivity.RESULT_OK) {
-                imageUri = data?.data
-                Glide.with(requireContext()).load(imageUri).circleCrop().into(binding.profileImage)
+                val uri = data?.data
+                viewModel.uri = uri
+                Glide.with(requireContext()).load(uri).circleCrop().into(binding.profileImage)
             }
         }
 
-        private fun showProgressBar() {
-            val dialog = ProgressDialog.dialog(requireContext(), "image loading...")
-            viewModel.progress.observe(viewLifecycleOwner, Observer { showing ->
-                if (showing) {
-                    dialog.show()
-                } else {
-                    dialog.dismiss()
-                }
-            })
-        }
+
 
     private fun showViewForSuccess() {
 
